@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-//2
+//1
 int main()
 {
     int T;
