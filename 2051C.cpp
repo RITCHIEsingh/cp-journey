@@ -34,26 +34,41 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a
 void solve(){
     int n , m , k;
     cin>>n>>m>>k;
-    string s;
-    cin>>s;
-    int count = 0;
-    int ans = 0;
-    for(int i = 0 ; i<n ; i++){
-        if(s[i] == 0){
-            count++;
+    vi lists(m);
+    for0(i,m){
+        cin>>lists[i];
+    }
+    vi ans(k);
+    set<int> s;
+    for0(i,k){
+        cin>>ans[i];
+        s.insert(ans[i]);
+    }
+    if(k < n-1){
+        for(int i = 0 ; i<m ; i++){
+            cout<<"0";
         }
-        if(s[i] == 1){
-            count = 0;
+        cout<<endl;
+        return;
+    }
+    if(k == n){
+        for(int i = 0 ; i<m ; i++){
+            cout<<"1";
         }
-        if(count == m){
-            ans++;
-            for(int j = i ; j<i+k ; j++){
-                s[j]++;
-            }
-            count = 0;
+        cout<<endl;
+        return;
+    }
+    string str = "";
+    for(int i = 0 ; i<m ; i++){
+        if(s.find(lists[i]) == s.end()){
+            str += "1";
+        }
+        else{
+            str += "0";
         }
     }
-    cout<<ans<<endl;
+    cout<<str<<endl;
+
 }
 int main() {
     ios::sync_with_stdio(false);

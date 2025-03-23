@@ -1,0 +1,1 @@
+{"name":"Local: 1866","url":"d:\\codeforces\\1866.cpp","tests":[{"id":1737143702643,"input":"1\n-3\n","output":"3\n"},{"id":1737144031183,"input":"3\n2 -6 5\n","output":"2\n"},{"id":1737144049235,"input":"5\n0 -1 0 1 0\n","output":"0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\codeforces\\1866.cpp","group":"local","local":true}

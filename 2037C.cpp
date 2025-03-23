@@ -31,29 +31,41 @@ string to_upper(string a) { for (int i=0;i<(int)a.size();++i) if (a[i]>='a' && a
 string to_lower(string a) { for (int i=0;i<(int)a.size();++i) if (a[i]>='A' && a[i]<='Z') a[i]+='a'-'A'; return a; }
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
 //solver fn
-void solve(){
-    int n , m , k;
-    cin>>n>>m>>k;
-    string s;
-    cin>>s;
-    int count = 0;
-    int ans = 0;
-    for(int i = 0 ; i<n ; i++){
-        if(s[i] == 0){
-            count++;
-        }
-        if(s[i] == 1){
-            count = 0;
-        }
-        if(count == m){
-            ans++;
-            for(int j = i ; j<i+k ; j++){
-                s[j]++;
-            }
-            count = 0;
-        }
+bool iscomposite(int n) {
+    if (n <= 1) return false;
+    if (n == 2 || n == 3) return false;
+    if (n % 2 == 0 || n % 3 == 0) return true;
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return true;
     }
-    cout<<ans<<endl;
+    return false;
+}
+
+void solve(){
+    int n ;
+    cin>>n;
+    if(n < 5){
+        cout<<-1<<endl;
+        return;
+    }
+    
+            for(int i = 2 ; i<=n ; i = i+2){
+                if(i == 4){
+                    continue;
+                }
+                cout<<i<<" ";
+            }
+            cout<<4<<" "<<5<<" ";
+            for(int i = 1 ; i<=n ; i +=2){
+                if(i == 5){
+                    continue;
+                }
+                cout<<i<<" ";
+            }
+            cout<<endl;
+            return;
+        
+            
 }
 int main() {
     ios::sync_with_stdio(false);

@@ -32,27 +32,32 @@ string to_lower(string a) { for (int i=0;i<(int)a.size();++i) if (a[i]>='A' && a
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
 //solver fn
 void solve(){
-    int n , m , k;
-    cin>>n>>m>>k;
-    string s;
-    cin>>s;
-    int count = 0;
-    int ans = 0;
-    for(int i = 0 ; i<n ; i++){
-        if(s[i] == 0){
-            count++;
+    int n , k;
+    cin>>n>>k;
+    map<int,int> map;
+    for0(i,n){
+        ll a;
+        cin>>a;
+        map[a]++;
+    }
+    vi b;
+    for(auto x : map){
+        b.pb(x.se);
+    }
+    sort(b.begin() , b.end());
+    int sized = b.size();
+    int ans = b.size();
+    for(int i = 0 ; i<b.size()-1 ; i++){
+        if(k>=b[i]){
+            k = k-b[i];
+            ans--;
+            
         }
-        if(s[i] == 1){
-            count = 0;
-        }
-        if(count == m){
-            ans++;
-            for(int j = i ; j<i+k ; j++){
-                s[j]++;
-            }
-            count = 0;
+        else{
+            break;
         }
     }
+
     cout<<ans<<endl;
 }
 int main() {

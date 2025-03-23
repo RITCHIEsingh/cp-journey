@@ -32,28 +32,20 @@ string to_lower(string a) { for (int i=0;i<(int)a.size();++i) if (a[i]>='A' && a
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
 //solver fn
 void solve(){
-    int n , m , k;
-    cin>>n>>m>>k;
-    string s;
-    cin>>s;
-    int count = 0;
-    int ans = 0;
-    for(int i = 0 ; i<n ; i++){
-        if(s[i] == 0){
-            count++;
-        }
-        if(s[i] == 1){
-            count = 0;
-        }
-        if(count == m){
-            ans++;
-            for(int j = i ; j<i+k ; j++){
-                s[j]++;
-            }
-            count = 0;
-        }
+    int n;
+    cin>>n;
+    string s = "aeiou";
+    string ans = "";
+    int rem = n%5;
+    for(int i = 1 ; i<=n/5 ; i++){
+       ans += s;
     }
-    cout<<ans<<endl;
+    ans += s.substr(0,n%5);
+    sort(ans.begin() , ans.end());
+    for(int i = 0 ; i<ans.size() ;i++){
+        cout<<ans[i];
+    }
+    cout<<endl;
 }
 int main() {
     ios::sync_with_stdio(false);
